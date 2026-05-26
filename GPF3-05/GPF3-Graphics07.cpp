@@ -49,5 +49,21 @@ void FrameBufferEmulator::drawUser(unsigned char* buff, int mode, int keyLevel, 
 	if (keyTrigger == SDLK_UP) { // 上矢印キーが押されたら
 		radius++;  // 半径を大きくする
 	}
+
+	if (keyTrigger == SDLK_DOWN) { // 下矢印キーが押されたら
+		radius--;  // 半径を小さくする
+	}
+
+	if (keyLevel == SDLK_RIGHT) { // 右矢印キーが押されたら
+		color[0] = 0;
+		color[1] = 0;
+		color[2] = 200;// 色を変える
+	}
+
+	if (keyLevel == SDLK_LEFT) { // 右矢印キーが押されたら
+		color[0] = 200;
+		color[1] = 0;
+		color[2] = 0;// 色を変える
+	}
 	drawFilledCircle(buff, width, height, radius, centerX, centerY, color); // 円を描画する
 }
